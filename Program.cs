@@ -1,0 +1,67 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Vjezba2_lase_i_objekti
+{
+
+    class KlasaC
+    {
+        int zbroj;
+
+        public int Zbroj(int[] niz)
+        {
+            
+            int zbroj = 0;
+            for (int brojac = 0; brojac < niz.Length; brojac++)
+            {
+                zbroj += niz[brojac];
+            }
+
+            return zbroj;
+
+        
+        }
+        public double Prosjek(int[] niz)
+        {
+            double zbroj = Zbroj(niz);
+            double prosjek = zbroj / niz.Length; 
+            return prosjek;
+        }
+       
+            
+       
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int redniBroj = 1;
+            int[] niz = new int[5];
+
+            int zbroj;
+            double prosjek;
+
+
+            Console.WriteLine("vježba 2 -klase i objekti \n");
+            Console.WriteLine("Upiši 5 brojeva");
+            for(int brojac = 0;brojac < niz.Length; brojac++)
+            {
+                
+                Console.Write(redniBroj + ". broj: ");
+                niz[brojac] = Convert.ToInt32(Console.ReadLine());
+                redniBroj++;
+            }
+
+           KlasaC objekt = new KlasaC();
+            
+            Console.WriteLine("Zbroj članova niza je " + objekt.Zbroj(niz));
+            Console.WriteLine("Prosjek članova niza je " + objekt.Prosjek(niz) );
+
+
+            Console.ReadKey();
+        }
+    }
+}
